@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Mockman from "mockman-js";
+import Navbar from "./components/Navbar/Navbar";
+import Home  from "./pages/Home/Home";
+import UserList from "./components/UserList/UserList";
+import PostCard from "./components/PostCard/PostCard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Home /> */}
+      {/* <Navbar /> */}
+      {/* <PostCard /> */}
+<UserList />
+
+      <Routes>
+        <Route path="/mockman" element={<Mockman />}></Route>
+      </Routes>
     </div>
   );
 }
