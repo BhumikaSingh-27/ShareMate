@@ -4,6 +4,7 @@ import "../Home/Home.css"
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -31,7 +32,7 @@ const SignUp = () => {
             </div></div>
            
             <button className="signup-btn">Sign Up</button>
-            <div className="signup-nav">Already have an account? <a href="/"> login here</a>
+            <div className="signup-nav">Already have an account? <NavLink to="/"> login here</NavLink>
             </div>
           </div>
        
