@@ -6,6 +6,7 @@ import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
+import CreatePost from "../CreatePost/CreatePost";
 
 const Navbar = () => {
   return (
@@ -83,6 +84,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+    
     </div>
   );
 };
