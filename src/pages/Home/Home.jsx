@@ -17,7 +17,7 @@ const Home = () => {
           <div className="login-container">
             <h1>ShareMate</h1>
             <div className="login-form">
-              <label htmlFor="">username:</label>
+              <label>username:</label>
               <input type="text" />
               <div className="password-container">
                 <label htmlFor="">password:</label>
