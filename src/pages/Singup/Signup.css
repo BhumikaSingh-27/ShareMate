@@ -1,9 +1,12 @@
+.body{
+    
+}
 .signup-main {
     /* border:1px solid; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh;  
     /* background-image: url("https://res.cloudinary.com/dgoldjr3g/image/upload/v1686633811/NegProjects/SocialMedia/undraw_social_life_re_x7t5_pn8g0l.svg");
     background-repeat: no-repeat;
     backface-visibility: hidden;
@@ -15,12 +18,13 @@
     width: 80%;
     justify-content: space-around;
     gap: 4rem;
+    flex-wrap: wrap;
 
 }
 
-.signup-img {
+/* .signup-img {
     display:none
-}
+} */
 
 .signup-form {
     width: 50%;
