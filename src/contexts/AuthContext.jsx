@@ -10,6 +10,12 @@ export const AuthContextProvider = ({ children }) => {
     username: "",
     password: "",
   });
+  const [signupInput, setSignupInput] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+  });
   const navigate = useNavigate();
 
   const loginHandler = async (creds) => {
@@ -42,9 +48,67 @@ export const AuthContextProvider = ({ children }) => {
   //   const loginasGuest = () => {
   //     setLoginInput({ username: "bhumika27", password: "bhumi27" });
   //     loginHandler();
-  //   };
+  //   };\
+
+  const signupHandler = async () => {
+    if (
+      signupInput.firstname &&
+      signupInput.lastname &&
+      signupInput.username &&
+      signupInput.password
+    ) {
+      try {
+        const response = await axios.post("/api/auth/signup", {
+          //   username: signupInput.username,
+          //   password: signupInput.password,
+          //   firstname: signupInput.firstname,
+          //   lastname: signupInput.lastname,
+          ...signupInput,
+        });
+
+        if (response.status === 201) {
+          localStorage.setItem("token", response.data.encodedToken);
+          navigate("/landing");
+          toastNotify(
+            "success",
+            "Welcome to ShareMate! You're successfully signed up!"
+          );
+        }
+      } catch (e) {
+        console.log(e);
+        toastNotify("error", "User already exists! Please select to login!");
+      }
+    } else {
+        toastNotify("error", "Please enter all the fields");
+    //   if (
+    //     !signupInput.firstname &&
+    //     !signupInput.lastname &&
+    //     !signupInput.username &&
+    //     !signupInput.password
+    //   ) {
+    //     toastNotify("error", "Please enter all the fields");
+    //   } else if (!signupInput.firstname) {
+    //     toastNotify("error", "Firstname is empty");
+    //   } else if (!signupInput.lastname) {
+    //     toastNotify("error", "Lastname is empty");
+    //   } else if (!signupInput.username) {
+    //     toastNotify("error", "username is empty");
+    //   } else {
+    //     toastNotify("error", "password is empty");
+    //   }
+    }
+  };
   return (
-    <AuthContext.Provider value={{ loginInput, setLoginInput, loginHandler }}>
+    <AuthContext.Provider
+      value={{
+        loginInput,
+        setLoginInput,
+        loginHandler,
+        signupInput,
+        setSignupInput,
+        signupHandler,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
