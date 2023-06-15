@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { AuthContextProvider } from "./contexts/AuthContext";
+import { DataContextProvider } from "./contexts/DataContext";
 
 // Call make Server
 makeServer();
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
+        <DataContextProvider>
         <App />
+        </DataContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
