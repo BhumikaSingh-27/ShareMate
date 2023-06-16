@@ -64,12 +64,15 @@ const Navbar = () => {
           </div>
           Liked Posts
         </div>
-        <div className="nav-content">
-          <div className="nav-icons">
-            <BookmarkIcon />
-          </div>{" "}
-          Bookmarks
-        </div>
+        <NavLink to="/bookmark">
+          {" "}
+          <div className="nav-content">
+            <div className="nav-icons">
+              <BookmarkIcon />
+            </div>{" "}
+            Bookmarks
+          </div>
+        </NavLink>
         <div className="nav-content">
           <div className="nav-icons">
             <PersonIcon />

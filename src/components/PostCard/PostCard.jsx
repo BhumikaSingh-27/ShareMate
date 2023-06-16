@@ -18,7 +18,7 @@ const PostCard = ({ data }) => {
   //get like count of a post
   const likedCount = state.posts.find(({ _id }) => _id === data._id).likes
     .likeCount;
-  console.log(likedCount);
+  
   return (
     <div>
       <div className="post-container">

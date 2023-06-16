@@ -1,7 +1,7 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { initialValue, reducerFun } from "../reducers/dataReducer";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
+
 
 export const DataContext = createContext();
 
