@@ -13,14 +13,15 @@ export const users = [
     username: "adarshbalika",
     password: "adarshBalika123",
     bio: "I'm adarsh balika!",
-    avatarUrl: "",
+    avatarUrl:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804932/NegProjects/SocialMedia/76_zofevc.jpg",
     bookmarks: [],
     followers: [],
     following: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
- 
+
   {
     _id: uuid(),
     firstName: "Bhumika",

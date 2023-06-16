@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from "@mui/icons-material/Explore";
@@ -8,8 +8,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { NavLink, useNavigate } from "react-router-dom";
+import { DataContext } from "../../contexts/DataContext";
 
 const Navbar = () => {
+  const { dispatch } = useContext(DataContext);
   const navigate = useNavigate();
   return (
     <div className="nav-main">
@@ -73,16 +75,19 @@ const Navbar = () => {
             Bookmarks
           </div>
         </NavLink>
-        <div className="nav-content">
-          <div className="nav-icons">
-            <PersonIcon />
-          </div>{" "}
-          Profile
-        </div>
+        <NavLink to="/profilepage">
+          <div className="nav-content">
+            <div className="nav-icons">
+              <PersonIcon />
+            </div>{" "}
+            Profile
+          </div>
+        </NavLink>
         <div
           className="nav-content"
           onClick={() => {
             localStorage.clear();
+            dispatch({ type: "RESET_ALL" });
             navigate("/");
           }}
         >

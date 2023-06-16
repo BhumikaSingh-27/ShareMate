@@ -57,9 +57,6 @@ const Footer = () => {
         </div>
         <div>&#169; 2023 | ShareMate</div>
       </div>
-      <label for="avatar">Choose a profile:</label>
-
-
     </div>
   );
 };

@@ -1,7 +1,13 @@
 import React from "react";
 import "./Profile.css";
+import { useContext } from "react";
+import { DataContext } from "../../contexts/DataContext";
 
 const Profile = () => {
+  
+  const {state} = useContext(DataContext)
+  
+
   return (
     <div className="profile-main">
       <div className="profile-container">
