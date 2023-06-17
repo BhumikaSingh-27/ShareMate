@@ -29,7 +29,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
+    username: "Jane12",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -44,7 +44,21 @@ export const posts = [
       dislikedBy: [],
     },
     username: "bhumika27",
-    createdAt: "27th July, 2023",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content: "It's my birthday today!",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or9_a9gsdi.avif",
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "Jane12",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
   },
 ];
