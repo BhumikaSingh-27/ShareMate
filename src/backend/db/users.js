@@ -29,9 +29,10 @@ export const users = [
     username: "bhumika27",
     password: "bhumi27",
     bio: "Be the person you are trying to find!",
+    website: "https://bhumikawebsite.netlify.app/",
     avatarUrl:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804941/NegProjects/SocialMedia/311639512_576717774259599_8692789323497610209_n_kj0bmr.jpg",
-    website: "https://bhumikawebsite.netlify.app/",
+    
     bookmarks: [],
     followers: [],
     following: [],
@@ -45,6 +46,7 @@ export const users = [
     username: "Jane12",
     password: "JP",
     bio: "Software Enginneer",
+    website:"https://google.com",
     avatarUrl:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804933/NegProjects/SocialMedia/87_tlp0ec.jpg",
     bookmarks: [],
