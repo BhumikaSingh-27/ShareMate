@@ -15,8 +15,6 @@ export const AuthContextProvider = ({ children }) => {
     password: "",
   });
 
-  //set the username when any user logs in
-  // const [userLoggedIn, setUserLoggedIn] = useState("");
 
   //signup state management
   const [signupInput, setSignupInput] = useState({

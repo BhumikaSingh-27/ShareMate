@@ -86,7 +86,21 @@ export const DataContextProvider = ({ children }) => {
       }
     }
   };
-
+  const createPostHandler = async (postData) => {
+    try {
+      const response = await axios.post(
+        "/api/posts",
+        { content: postData.text, image: postData.media },  //{..spost} and {post}
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+      );
+      console.log(response);
+      dispatch({ type: "GET_POSTS", payload: response.data.posts });
+    } catch (e) {}
+  };
   useEffect(() => {
     (async () => {
       try {
@@ -99,19 +113,21 @@ export const DataContextProvider = ({ children }) => {
     })();
   }, []);
 
+  const getUserLoggedInData = async () => {
+    try {
+      const user = state?.users?.find(
+        (usr) => usr.username === state.userLoggedIn
+      );
+      const response = await axios.get(`/api/users/${user._id}`);
+      setUserLoginData(response.data.user);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
-    (async () => {
-      try {
-        const user = state?.users?.find(
-          (usr) => usr.username === state.userLoggedIn
-        );
-        const response = await axios.get(`/api/users/${user._id}`);
-        setUserLoginData(response.data.user);
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  },[state.userLoggedIn]);
+    getUserLoggedInData();
+  }, []);
 
   return (
     <DataContext.Provider
@@ -123,6 +139,8 @@ export const DataContextProvider = ({ children }) => {
         userPost,
         setUserPost,
         userLoginData,
+        getUserLoggedInData,
+        createPostHandler,
       }}
     >
       {children}

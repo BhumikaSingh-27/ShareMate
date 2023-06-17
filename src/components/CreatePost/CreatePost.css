@@ -64,3 +64,10 @@
     width: fit-content;
     padding: 0.3rem 0.5rem;
 }
+
+.media-loaded{
+    background-color: hsl(246, 31%, 36%) ;
+    color:white;
+    padding:0rem 0.5rem;
+    border-radius: 0.5rem;
+}

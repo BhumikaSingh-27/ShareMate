@@ -11,7 +11,7 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
 
 const Landing = () => {
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, getUserLoggedInData } = useContext(DataContext);
 
   useEffect(() => {
     (async () => {
@@ -35,6 +35,10 @@ const Landing = () => {
   //     }
   //   })();
   // }, []);
+
+  useEffect(() => {
+    getUserLoggedInData();
+  }, []);
 
   return (
     <div className="landing-container">
