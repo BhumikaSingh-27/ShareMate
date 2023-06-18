@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { AuthContextProvider } from "./contexts/AuthContext";
 import { DataContextProvider } from "./contexts/DataContext";
+import { AsideDataContextProvider } from "./contexts/AsideDataContext";
 
 // Call make Server
 makeServer();
@@ -17,7 +18,9 @@ root.render(
     <BrowserRouter>
       <DataContextProvider>
         <AuthContextProvider>
-          <App />
+          <AsideDataContextProvider>
+            <App />
+          </AsideDataContextProvider>
         </AuthContextProvider>
       </DataContextProvider>
     </BrowserRouter>
