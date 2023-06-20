@@ -152,6 +152,7 @@ export const DataContextProvider = ({ children }) => {
         userPost,
         setUserPost,
         userLoginData,
+        setUserLoginData,
         getUserLoggedInData,
         createPostHandler,
         setFilter,

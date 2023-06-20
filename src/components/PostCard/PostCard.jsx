@@ -21,8 +21,8 @@ const PostCard = ({ data }) => {
   const [modifyPost, setModifyPost] = useState(false); //to open the dropdow for edit option
 
   //get like count of a post
-  const likedCount = state.posts.find(({ _id }) => _id === data._id).likes
-    .likeCount;
+  const likedCount = state.posts.find(({ _id }) => _id === data._id)?.likes
+    ?.likeCount;
 
   //check if post is already liked and preent in likedPosts Array
   const postLiked = state?.likedPosts?.find((id) => id === data._id);

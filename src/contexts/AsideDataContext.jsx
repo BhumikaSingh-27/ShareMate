@@ -10,30 +10,26 @@ export const AsideDataContext = createContext();
 export const AsideDataContextProvider = ({ children }) => {
   const [searchUser, setSearchUser] = useState("");
   const [editPost, setEditPost] = useState(false); //to open the dropdow for edit option
-
-  const { encodedToken, dispatch, setCreatePost } = useContext(DataContext);
+  const { encodedToken, dispatch, state, setUserLoginData, userLoginData } =
+    useContext(DataContext);
 
   const deletePost = async (postId) => {
     console.log(encodedToken);
     try {
-        const response = await fetch(`/api/posts/${postId}`, {
-          method: "DELETE",
-          headers: {
-            authorization: encodedToken,
-          },
-        });
-    //   const response = await axios.delete(
-    //     `/api/posts/${postId}`,
-    //     {},
-    //     {
-    //       headers: {
-    //         authorization: encodedToken,
-    //       },
-    //     }
-    //   );
-      const data = await response.json();
-      console.log(data);
-      dispatch({ type: "GET_POSTS", payload: data.posts });
+      //   const response = await fetch(`/api/posts/${postId}`, {
+      //     method: "DELETE",
+      //     headers: {
+      //       authorization: encodedToken,
+      //     },
+      //   });
+      const response = await axios.delete(`/api/posts/${postId}`, {
+        headers: {
+          authorization: encodedToken,
+        },
+      });
+      //   const data = await response.json();
+      console.log(response);
+      //   dispatch({ type: "GET_POSTS", payload: data.posts });
       toastNotify("success", "Post Deleted successfully!");
     } catch (e) {
       console.log(e);
@@ -61,11 +57,16 @@ export const AsideDataContextProvider = ({ children }) => {
           },
         }
       );
-      console.log(response);
+      setUserLoginData(response.data.user);
+      dispatch({ type: "GET_FOLLOWING", payload: response.data.followUser });
+      dispatch({ type: "USER_TO_FOLLOW" });
+      const res = await axios.get("/api/users");
+      dispatch({ type: "GET_USERS", payload: res.data.users });
     } catch (e) {
       console.log(e);
     }
   };
+
   return (
     <AsideDataContext.Provider
       value={{
