@@ -18,7 +18,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(state.userLoggedIn);
+      // console.log(state.userLoggedIn);
       try {
         const response = await axios.get(
           `/api/posts/user/${state.userLoggedIn}`

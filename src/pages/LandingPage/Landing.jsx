@@ -10,6 +10,7 @@ import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
 import Modal from "../../components/Modal/Modal";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Landing = () => {
   const {
@@ -21,6 +22,7 @@ const Landing = () => {
     setOpenModal,
   } = useContext(DataContext);
 
+  const { editPost, setEditPost } = useContext(AsideDataContext);
   const data = state.filter
     ? [...state?.posts].sort((a, b) =>
         state.filter === "latest"
@@ -62,6 +64,7 @@ const Landing = () => {
     <div className="landing-container">
       <Navbar />
       {openModal && <Modal open={setOpenModal} />}
+      {editPost && <Modal open={setEditPost} />}
       <div className="feed">
         <div className="filter-container">
           <div className="filter-post">

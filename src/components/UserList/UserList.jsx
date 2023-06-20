@@ -1,8 +1,11 @@
 import React from "react";
 import "./UserList.css";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
+import { useContext } from "react";
 
 const UserList = ({ user }) => {
-  console.log(user);
+  const {followUser} = useContext(AsideDataContext)
+  
   return (
     <div>
       <div>
@@ -14,7 +17,7 @@ const UserList = ({ user }) => {
             </h4>
             <span>@{user.username}</span>
           </div>
-          <button className="follow-btn">+ Follow</button>
+          <button className="follow-btn" onClick={()=>followUser(user._id)}>+ Follow</button>
         </div>
       </div>
     </div>
