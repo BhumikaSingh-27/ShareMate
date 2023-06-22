@@ -35,9 +35,9 @@ export const posts = [
   },
   {
     _id: uuid(),
-    content: "I bought these beautiful flowers today!",
-    image:
-      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or9_a9gsdi.avif",
+    content:
+      "Life presents us with beautiful moments. But it also brings its fair share of challenges. We all encounter hardships that test our resilience. It may be personal setbacks, professional roadblocks, or unexpected twists.",
+    image: "",
     likes: {
       likeCount: 5,
       likedBy: [],

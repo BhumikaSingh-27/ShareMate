@@ -104,17 +104,22 @@ const Navbar = () => {
         </div>
 
         <button onClick={() => setOpenModal(true)}> New Post</button>
-        <div className="nav-profile">
-          <img
-            src={userLoginData?.avatarUrl}
-            alt=""
-            className="nav-profile-pic"
-          />
-          <div>
-            <h4>Bhumika Singh</h4>
-            <span>@bhumikasingh</span>
+        <NavLink
+          to={`/profilepage/${state.userLoggedIn}`}
+          className="nav-profile-container"
+        >
+          <div className="nav-profile">
+            <img
+              src={userLoginData?.avatarUrl}
+              alt=""
+              className="nav-profile-pic"
+            />
+            <div>
+              <h4>Bhumika Singh</h4>
+              <span>@bhumikasingh</span>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );
