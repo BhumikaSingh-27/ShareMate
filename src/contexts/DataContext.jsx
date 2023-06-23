@@ -92,46 +92,51 @@ export const DataContextProvider = ({ children }) => {
     }
   };
   const createPostHandler = async (postData) => {
-    const findPost = state?.posts?.find(
-      ({ _id }) => _id === editPostId.current
-    );
-    console.log("edit", findPost);
-    if (findPost) {
-      try {
-        const response = await axios.post(
-          `/api/posts/edit/${editPostId.current}`,
-          {
-            postData: { content: postData.text, image: postData.media },
-          },
-          {
-            headers: {
-              authorization: encodedToken,
+    if (!postData.text) {
+      console.log("hello");
+      const findPost = state?.posts?.find(
+        ({ _id }) => _id === editPostId.current
+      );
+      console.log("edit", findPost);
+      if (findPost) {
+        try {
+          const response = await axios.post(
+            `/api/posts/edit/${editPostId.current}`,
+            {
+              postData: { content: postData.text, image: postData.media },
             },
-          }
-        );
-        //update the posts with the edited content
-        dispatch({ type: "GET_POSTS", payload: response.data.posts });
-        toastNotify("success", "Updated successfully!");
-      } catch (e) {
-        console.log(e);
+            {
+              headers: {
+                authorization: encodedToken,
+              },
+            }
+          );
+          //update the posts with the edited content
+          dispatch({ type: "GET_POSTS", payload: response.data.posts });
+          toastNotify("success", "Updated successfully!");
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        try {
+          const response = await axios.post(
+            "/api/posts",
+            { postData: { content: postData.text, image: postData.media } }, //{..post} and {post}
+            {
+              headers: {
+                authorization: encodedToken,
+              },
+            }
+          );
+          console.log("new post", response);
+          dispatch({ type: "GET_POSTS", payload: response.data.posts });
+          toastNotify("success", "Posted successfully!");
+        } catch (e) {
+          console.log(e);
+        }
       }
     } else {
-      try {
-        const response = await axios.post(
-          "/api/posts",
-          { postData: { content: postData.text, image: postData.media } }, //{..post} and {post}
-          {
-            headers: {
-              authorization: encodedToken,
-            },
-          }
-        );
-        console.log("new post", response);
-        dispatch({ type: "GET_POSTS", payload: response.data.posts });
-        toastNotify("success", "Posted successfully!");
-      } catch (e) {
-        console.log(e);
-      }
+      toastNotify("error", "Add content to post");
     }
   };
 
@@ -153,7 +158,6 @@ export const DataContextProvider = ({ children }) => {
 
   const getUserLoggedInData = async () => {
     try {
-      const valaue = state.users;
       const user = state?.users?.find(
         (usr) => usr.username === state.userLoggedIn
       );
