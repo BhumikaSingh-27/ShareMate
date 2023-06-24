@@ -3,7 +3,6 @@ export const initialValue = {
   users: [],
   likedPosts: [],
   bookmarkedPosts: [],
-  userLoggedIn: "",
   filter: "",
   following: [],
   userToFollow: [],
@@ -34,11 +33,7 @@ export const reducerFun = (state, action) => {
         bookmarkedPosts: action.payload,
       };
     }
-
-    case "SET_USERNAME": {
-      return { ...state, userLoggedIn: action.payload };
-    }
-
+    
     case "RESET_ALL": {
       return { ...initialValue };
     }
