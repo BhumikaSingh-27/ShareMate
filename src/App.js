@@ -24,6 +24,7 @@ import Modal from "./components/Modal/Modal";
 import axios from "axios";
 import { AsideDataContext } from "./contexts/AsideDataContext";
 import ProfileModal from "./components/Modal/ProfileModal";
+import AuthWrapper from "./components/Authenticate/AuthWrapper";
 
 function App() {
   const {
@@ -72,11 +73,46 @@ function App() {
         <Route path="/mockman" element={<Mockman />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/landing" element={<Landing />}></Route>
-        <Route path="/explore" element={<Explore />}></Route>
-        <Route path="/bookmark" element={<Bookmark />}></Route>
-        <Route path="/likepage" element={<LikePage />}></Route>
-        <Route path="/profilepage/:username" element={<ProfilePage />}></Route>
+        <Route
+          path="/landing"
+          element={
+            <AuthWrapper>
+              <Landing />
+            </AuthWrapper>
+          }
+        ></Route>
+        <Route
+          path="/explore"
+          element={
+            <AuthWrapper>
+              <Explore />
+            </AuthWrapper>
+          }
+        ></Route>
+        <Route
+          path="/bookmark"
+          element={
+            <AuthWrapper>
+              <Bookmark />
+            </AuthWrapper>
+          }
+        ></Route>
+        <Route
+          path="/likepage"
+          element={
+            <AuthWrapper>
+              <LikePage />
+            </AuthWrapper>
+          }
+        ></Route>
+        <Route
+          path="/profilepage/:username"
+          element={
+            <AuthWrapper>
+              <ProfilePage />
+            </AuthWrapper>
+          }
+        ></Route>
       </Routes>
       <Footer />
       <ToastContainer />

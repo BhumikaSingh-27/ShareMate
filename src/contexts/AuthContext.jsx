@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import toastNotify from "../utils/toastNotify";
 import { useContext } from "react";
 import { DataContext } from "./DataContext";
@@ -24,6 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const loginHandler = async (creds) => {
     if (creds.username && creds.password) {
@@ -38,7 +39,8 @@ export const AuthContextProvider = ({ children }) => {
           localStorage.setItem("loggedUser", data.foundUser.username);
           setEncodedToken(data.encodedToken);
           setUserLoggedIn(data.foundUser.username);
-          navigate("/landing");
+          // navigate("/landing");
+          navigate(location?.state?.from?.pathname ?? "/landing");
           toastNotify("success", "You're successfully logged in!");
         }
       } catch (e) {

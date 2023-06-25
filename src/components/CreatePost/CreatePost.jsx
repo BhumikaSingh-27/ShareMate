@@ -49,7 +49,7 @@ const CreatePost = () => {
               name="avatar"
               accept="image/png, image/jpeg video/*"
               onChange={(event) =>
-                setCreatePost({ ...createPost, media: event.target.files[0] })
+                setCreatePost({ ...createPost, media: event.target.value })
               }
             />
             <span className={createPost.media && "media-loaded"}>
