@@ -33,7 +33,7 @@ body {
 
 .main {
   display: flex;
-  gap:3rem;
+  gap: 3rem;
   justify-content: space-around;
   margin: 0rem 6rem;
 
@@ -67,4 +67,15 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  background-color: rgba(58, 53, 53, 0.22);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

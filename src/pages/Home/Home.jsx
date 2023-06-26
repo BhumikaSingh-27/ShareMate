@@ -4,17 +4,23 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-
+import { DataContext } from "../../contexts/DataContext";
 
 const Home = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loginInput, setLoginInput, loginHandler } = useContext(AuthContext);
+  const { setEncodedToken } = useContext(DataContext);
 
   const creds = { username: "bhumika27", password: "bhumi27" };
 
   useEffect(() => {
     setLoginInput({ username: "", password: "" });
-  },[]);
+  }, []);
+
+  useEffect(() => {
+    localStorage.clear();
+    setEncodedToken("");
+  }, []);
 
   return (
     <div className="home-main">

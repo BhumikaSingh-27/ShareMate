@@ -25,6 +25,8 @@ import axios from "axios";
 import { AsideDataContext } from "./contexts/AsideDataContext";
 import ProfileModal from "./components/Modal/ProfileModal";
 import AuthWrapper from "./components/Authenticate/AuthWrapper";
+import { MoonLoadeer } from "react-spinners";
+import { Discuss, TailSpin } from "react-loader-spinner";
 
 function App() {
   const {
@@ -34,8 +36,7 @@ function App() {
     dispatch,
     openModal,
     setOpenModal,
-    userLoggedIn,
-    setUserLoginData,
+    loading,
     encodedToken,
   } = useContext(DataContext);
 
@@ -72,11 +73,28 @@ function App() {
   };
   return (
     <div className="App">
+      {loading && (
+        <div className="loader">
+          <Discuss
+            height="200"
+            width="200"
+            // color="pink"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            color="#fff"
+            backgroundColor="#F4442E"
+            fontSize="5rem"
+          />
+        </div>
+      )}
       {editPost && <Modal open={setEditPost} />}
       {openModal && <Modal open={setOpenModal} />}
       {editProfile && <ProfileModal open={setEditProfile} />}
       <div className="main">
-        {localStorage.getItem("token") && <Navbar />}
+        {encodedToken && <Navbar />}
         <div className="section">
           <Routes>
             <Route path="/mockman" element={<Mockman />}></Route>

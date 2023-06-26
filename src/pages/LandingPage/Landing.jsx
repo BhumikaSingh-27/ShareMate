@@ -4,15 +4,12 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import PostCard from "../../components/PostCard/PostCard";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import UserList from "../../components/UserList/UserList";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
-import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Landing = () => {
-  const { state, dispatch, userLoginData, setFilter, userLoggedIn } =
+  const { state, dispatch, setFilter, userLoggedIn, loading, setLoading } =
     useContext(DataContext);
 
   const landingPost = state?.posts?.filter(
@@ -35,15 +32,17 @@ const Landing = () => {
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const response = await axios.get("/api/posts");
         // console.log(response);
         dispatch({ type: "GET_POSTS", payload: response.data.posts });
+        setLoading(false);
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
-  console.log("sign",userLoginData);
+
   // useEffect(() => {
   //   (async () => {
   //     try {
@@ -108,8 +107,6 @@ const Landing = () => {
               </div>
             ))}
       </div>
-
-     
     </div>
   );
 };
