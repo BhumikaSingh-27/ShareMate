@@ -78,15 +78,9 @@ function App() {
           <Discuss
             height="200"
             width="200"
-            // color="pink"
             ariaLabel="tail-spin-loading"
             radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
             color="#fff"
-            backgroundColor="#F4442E"
-            fontSize="5rem"
           />
         </div>
       )}
