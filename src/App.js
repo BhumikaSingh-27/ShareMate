@@ -35,6 +35,7 @@ function App() {
     openModal,
     setOpenModal,
     userLoggedIn,
+    setUserLoginData,
   } = useContext(DataContext);
 
   const { editPost, setEditPost, editProfile, setEditProfile } =
@@ -43,6 +44,8 @@ function App() {
   useEffect(() => {
     const encodedToken = localStorage.getItem("token");
     setEncodedToken(encodedToken ?? "");
+    console.log("abcd", localStorage.getItem("userData"));
+    // setUserLoginData();
   }, []);
 
   useEffect(() => {
@@ -50,6 +53,7 @@ function App() {
       try {
         const response = await axios.get("/api/users");
         dispatch({ type: "GET_USERS", payload: response.data.users });
+        console.log(response.data.users)
         // getUserLoggedInData();
       } catch (e) {
         console.log(e);
@@ -57,11 +61,12 @@ function App() {
     })();
   }, []);
 
-  useEffect(() => {
-    getUserLoggedInData();
-  }, [userLoggedIn]);
 
-  console.log("inside app", state);
+  // useEffect(() => {
+  //   getUserLoggedInData();
+  // }, [userLoggedIn]);
+
+  // console.log("inside app", state);
 
   return (
     <div className="App">

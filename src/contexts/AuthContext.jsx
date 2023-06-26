@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import toastNotify from "../utils/toastNotify";
@@ -8,8 +8,13 @@ import { DataContext } from "./DataContext";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const { setEncodedToken, dispatch, userLoggedIn, setUserLoggedIn } =
-    useContext(DataContext);
+  const {
+    dispatch,
+    setEncodedToken,
+    setUserLoggedIn,
+    setUserLoginData,
+    userLoginData,
+  } = useContext(DataContext);
   const [loginInput, setLoginInput] = useState({
     username: "",
     password: "",
@@ -37,9 +42,10 @@ export const AuthContextProvider = ({ children }) => {
         if (status === 200) {
           localStorage.setItem("token", data.encodedToken);
           localStorage.setItem("loggedUser", data.foundUser.username);
+          localStorage.setItem("userData", JSON.stringify(data.foundUser));
           setEncodedToken(data.encodedToken);
           setUserLoggedIn(data.foundUser.username);
-          // navigate("/landing");
+          setUserLoginData(JSON.parse(localStorage.getItem("userData")));
           navigate(location?.state?.from?.pathname ?? "/landing");
           toastNotify("success", "You're successfully logged in!");
         }
@@ -71,19 +77,32 @@ export const AuthContextProvider = ({ children }) => {
           //   firstname: signupInput.firstname,
           //   lastname: signupInput.lastname,
           ...signupInput,
+          avatarUrl:
+            "https://res.cloudinary.com/dgoldjr3g/image/upload/v1687433601/NegProjects/SocialMedia/man_2_hjk6pd.png",
         });
         console.log("signup", response);
-
         if (response.status === 201) {
           localStorage.setItem("token", response.data.encodedToken);
           localStorage.setItem(
             "loggedUser",
             response.data.createdUser.username
           );
+          // const user = {
+          //   ...response.data.createdUser,
+          //   avatarUrl:
+          //     "https://res.cloudinary.com/dgoldjr3g/image/upload/v1687433601/NegProjects/SocialMedia/man_2_hjk6pd.png",
+          // };
+          localStorage.setItem(
+            "userData",
+            JSON.stringify(response.data.createdUser)
+          );
           setEncodedToken(response.data.encodedToken);
           setUserLoggedIn(response.data.createdUser.username);
+          setUserLoginData(JSON.parse(localStorage.getItem("userData")));
+          // setUserLoginData(response.data.createdUser);
           navigate("/landing");
-
+          const res = await axios.get("/api/users");
+          dispatch({ type: "GET_USERS", payload: res.data.users });
           toastNotify(
             "success",
             "Welcome to ShareMate! You're successfully signed up!"
@@ -98,9 +117,9 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  // useEffect(() => {
-  //   dispatch({ type: "SET_USERNAME", payload: loginInput.username });
-  // }, [loginInput.username]);
+  useEffect(() => {
+    console.log("json", userLoginData);
+  }, [userLoginData]);
 
   return (
     <AuthContext.Provider

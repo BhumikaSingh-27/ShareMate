@@ -57,7 +57,7 @@ const SearchBar = () => {
                     />
                     <div>
                       <h4>
-                        {ele.firstName} {ele.lastName}
+                        {ele.firstname} {ele.lastname}
                       </h4>
                       <span>@{ele.username}</span>
                     </div>

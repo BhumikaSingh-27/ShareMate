@@ -8,8 +8,8 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balika",
+    firstname: "Adarsh",
+    lastname: "Balika",
     username: "adarshbalika",
     password: "adarshBalika123",
     bio: "I'm adarsh balika!",
@@ -24,15 +24,15 @@ export const users = [
 
   {
     _id: uuid(),
-    firstName: "Bhumika",
-    lastName: "Singh",
+    firstname: "Bhumika",
+    lastname: "Singh",
     username: "bhumika27",
     password: "bhumi27",
     bio: "Be the person you are trying to find!",
     website: "https://bhumikawebsite.netlify.app/",
     avatarUrl:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804941/NegProjects/SocialMedia/311639512_576717774259599_8692789323497610209_n_kj0bmr.jpg",
-    
+
     bookmarks: [],
     followers: [],
     following: [],
@@ -41,12 +41,12 @@ export const users = [
   },
   {
     _id: uuid(),
-    firstName: "Jane",
-    lastName: "Phillips",
+    firstname: "Jane",
+    lastname: "Phillips",
     username: "Jane12",
     password: "JP",
     bio: "Software Enginneer",
-    website:"https://google.com",
+    website: "https://google.com",
     avatarUrl:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804933/NegProjects/SocialMedia/87_tlp0ec.jpg",
     bookmarks: [],

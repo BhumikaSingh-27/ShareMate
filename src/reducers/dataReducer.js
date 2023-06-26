@@ -33,7 +33,7 @@ export const reducerFun = (state, action) => {
         bookmarkedPosts: action.payload,
       };
     }
-    
+
     case "RESET_ALL": {
       return { ...initialValue };
     }
@@ -74,6 +74,16 @@ export const reducerFun = (state, action) => {
             )
           : userList;
       return { ...state, userToFollow: suggestedUserToFollow };
+    }
+
+    case "UPDATE_USERS": {
+      const findUser = state?.users.map((user) =>
+        user.username === action.payload.username
+          ? { ...user, avatarUrl: action.payload.avatarUrl }
+          : user
+      );
+
+      return { ...state, users: findUser };
     }
     default: {
       return state;
