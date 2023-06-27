@@ -32,7 +32,7 @@ body {
 }
 
 :root {
-  --clr-primary: #6A3CF9;
+  --clr-primary: #0066C6;
   --clr-primary-dark: #FF7E95;
   --clr-secondary: #FEB6C3;
   --clr-off-secondary: #FFC7D1;
@@ -100,6 +100,12 @@ body {
   background-color: rgba(58, 53, 53, 0.22);
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedLoader{
   display: flex;
   justify-content: center;
   align-items: center;

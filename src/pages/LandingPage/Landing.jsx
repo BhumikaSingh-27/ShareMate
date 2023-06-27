@@ -11,8 +11,7 @@ import { useState } from "react";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
-  const [userPostData, setUserPostData] = useState([]);
-
+  
   const landingPost = state?.posts?.filter(
     ({ username }) =>
       username === userLoggedIn ||
@@ -30,17 +29,17 @@ const Landing = () => {
 
   // console.log(data);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get(`/api/posts/user/${userLoggedIn}`);
-        setUserPostData(response.data.posts);
-        // dispatch({ type: "GET_USERS", payload: response.data.users });
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const response = await axios.get(`/api/posts/user/${userLoggedIn}`);
+  //       setUserPostData(response.data.posts);
+  //       // dispatch({ type: "GET_USERS", payload: response.data.users });
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   })();
+  // }, []);
 
   // useEffect(() => {
   //   getUserLoggedInData();

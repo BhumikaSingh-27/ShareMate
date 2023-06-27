@@ -61,4 +61,45 @@ export const posts = [
     createdAt: "27 July, 2022",
     updatedAt: formatDate(),
   },
+  {
+    _id: uuid(),
+    content:
+      "Life presents us with beautiful moments. But it also brings its fair share of challenges. We all encounter hardships that test our resilience. It may be personal setbacks, professional roadblocks, or unexpected twists.",
+    image: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "bhumika27",
+    createdAt: "11 Jan, 2021",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Life presents us with beautiful moments. But it also brings its fair share of challenges. We all encounter hardships that test our resilience. It may be personal setbacks, professional roadblocks, or unexpected twists.",
+    image: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "bhumika27",
+    createdAt: "11 Jan, 2021",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content: "Life presents",
+    image: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "bhumika27",
+    createdAt: "11 Jan, 2021",
+    updatedAt: formatDate(),
+  },
 ];
