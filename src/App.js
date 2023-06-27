@@ -31,7 +31,7 @@ import { Discuss, TailSpin } from "react-loader-spinner";
 function App() {
   const {
     setEncodedToken,
-    getUserLoggedInData,
+    setLoading,
     state,
     dispatch,
     openModal,
@@ -46,8 +46,7 @@ function App() {
   useEffect(() => {
     const encodedToken = localStorage.getItem("token");
     setEncodedToken(encodedToken ?? "");
-    console.log("abcd", localStorage.getItem("userData"));
-    // setUserLoginData();
+    
   }, []);
 
   useEffect(() => {
@@ -63,6 +62,19 @@ function App() {
     })();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get("/api/posts");
+        // console.log(response);
+        dispatch({ type: "GET_POSTS", payload: response.data.posts });
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [encodedToken]);
   // useEffect(() => {
   //   getUserLoggedInData();
   // }, [userLoggedIn]);
@@ -80,7 +92,7 @@ function App() {
             width="200"
             ariaLabel="tail-spin-loading"
             radius="1"
-            color="#fff"
+            color="#FF7E95"
           />
         </div>
       )}

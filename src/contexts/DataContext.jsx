@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRef } from "react";
 import toastNotify from "../utils/toastNotify";
+import { useEffect } from "react";
 
 export const DataContext = createContext();
 
@@ -174,7 +175,8 @@ export const DataContextProvider = ({ children }) => {
       console.log(e);
     }
   };
-  console.log("new", state);
+  
+  
 
   return (
     <DataContext.Provider

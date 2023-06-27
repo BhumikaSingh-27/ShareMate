@@ -7,10 +7,11 @@ import PostCard from "../../components/PostCard/PostCard";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
+import { useState } from "react";
 
 const Landing = () => {
-  const { state, dispatch, setFilter, userLoggedIn, loading, setLoading } =
-    useContext(DataContext);
+  const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
+  const [userPostData, setUserPostData] = useState([]);
 
   const landingPost = state?.posts?.filter(
     ({ username }) =>
@@ -32,27 +33,14 @@ const Landing = () => {
   useEffect(() => {
     (async () => {
       try {
-        setLoading(true);
-        const response = await axios.get("/api/posts");
-        // console.log(response);
-        dispatch({ type: "GET_POSTS", payload: response.data.posts });
-        setLoading(false);
+        const response = await axios.get(`/api/posts/user/${userLoggedIn}`);
+        setUserPostData(response.data.posts);
+        // dispatch({ type: "GET_USERS", payload: response.data.users });
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const response = await axios.get("/api/users");
-  //       dispatch({type:"GET_USERS",payload:response.data.users})
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   })();
-  // }, []);
 
   // useEffect(() => {
   //   getUserLoggedInData();

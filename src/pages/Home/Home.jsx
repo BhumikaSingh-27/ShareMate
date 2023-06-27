@@ -33,7 +33,11 @@ const Home = () => {
 
         <div className="login">
           <div className="login-container">
-            <h1>ShareMate</h1>
+            <h1>
+              <span className="text-primary">Share</span>
+              <span className="text-secondary-dark">M</span>
+              <span className="text-primary">ate</span>
+            </h1>
             <div className="login-form">
               <label>username:</label>
               <input
@@ -65,9 +69,9 @@ const Home = () => {
                 </div>
               </div>
               {/* <div className="login-buttons"> */}
-              <button onClick={() => loginHandler(loginInput)}>Login</button>
+              <button className="btn-primary" onClick={() => loginHandler(loginInput)}>Login</button>
 
-              <button
+              <button id="btn-default" className="btn-default"
                 onClick={() => {
                   setLoginInput(creds);
                   loginHandler(creds);
