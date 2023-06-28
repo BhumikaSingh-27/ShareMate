@@ -27,6 +27,7 @@ import ProfileModal from "./components/Modal/ProfileModal";
 import AuthWrapper from "./components/Authenticate/AuthWrapper";
 import { MoonLoadeer } from "react-spinners";
 import { Discuss, TailSpin } from "react-loader-spinner";
+import SinglePost from "./pages/SinglePost.jsx/SinglePost";
 
 function App() {
   const {
@@ -143,6 +144,14 @@ function App() {
               element={
                 <AuthWrapper>
                   <ProfilePage />
+                </AuthWrapper>
+              }
+            ></Route>
+            <Route
+              path="/postpage/:postId"
+              element={
+                <AuthWrapper>
+                  <SinglePost />
                 </AuthWrapper>
               }
             ></Route>
