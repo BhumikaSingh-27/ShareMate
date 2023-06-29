@@ -18,7 +18,7 @@ const Landing = () => {
       state?.following?.find((user) => user.username === username)
   );
 
-  // const { editPost, setEditPost } = useContext(AsideDataContext);
+  
   const data = state.filter
     ? [...landingPost].sort((a, b) =>
         state.filter === "latest"
