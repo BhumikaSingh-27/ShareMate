@@ -34,7 +34,24 @@ export const users = [
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804941/NegProjects/SocialMedia/311639512_576717774259599_8692789323497610209_n_kj0bmr.jpg",
 
     bookmarks: [],
-    followers: [],
+    followers: [
+      {
+        // _id: uuid(),
+        firstname: "Mario",
+        lastname: "Chavez",
+        username: "Chavez24",
+        password: "Chavez12",
+        bio: "Let's get to work",
+        website: "https://google/pic/name.com",
+        avatarUrl:
+          "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804933/NegProjects/SocialMedia/11_zmzmjz.jpg",
+        bookmarks: [],
+        followers: [],
+        following: [],
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+      },
+    ],
     following: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -59,7 +76,7 @@ export const users = [
     _id: uuid(),
     firstname: "John",
     lastname: "Joe",
-    username: "JohnJoe",
+    username: "Johnjoe",
     password: "Joe1234",
     bio: "Margeting and Sales Enginneer",
     website: "https://margeting/sales/name.com",
@@ -77,7 +94,7 @@ export const users = [
     lastname: "Lane",
     username: "Lane34",
     password: "abbc1234",
-    bio: "Operation Enginneer",
+    bio: "Operation Engineer",
     website: "https://google/pic/name.com",
     avatarUrl:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804933/NegProjects/SocialMedia/10_yrt7lk.jpg",

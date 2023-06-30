@@ -7,7 +7,6 @@ import PostCard from "../../components/PostCard/PostCard";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
-import { useState } from "react";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
@@ -27,6 +26,7 @@ const Landing = () => {
       )
     : [...landingPost];
 
+    console.log(state)
   // console.log(data);
 
   // useEffect(() => {

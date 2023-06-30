@@ -13,10 +13,14 @@ const Home = () => {
 
   const creds = { username: "bhumika27", password: "bhumi27" };
 
+  
+  //whenever this page renders the form values shoulf be null/ it should be rest
   useEffect(() => {
     setLoginInput({ username: "", password: "" });
   }, []);
 
+
+  //the local storage should also be cleared(because we want user to provide data to login)
   useEffect(() => {
     localStorage.clear();
     setEncodedToken("");
