@@ -17,7 +17,6 @@ const Landing = () => {
       state?.following?.find((user) => user.username === username)
   );
 
-  
   const data = state.filter
     ? [...landingPost].sort((a, b) =>
         state.filter === "latest"
@@ -26,7 +25,7 @@ const Landing = () => {
       )
     : [...landingPost];
 
-    console.log(state)
+  console.log(state);
   // console.log(data);
 
   // useEffect(() => {
@@ -51,7 +50,6 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-     
       {/* <Navbar /> */}
       {/* filter section in landing page */}
       <div className="feed">
@@ -94,6 +92,7 @@ const Landing = () => {
                 <PostCard data={data} />
               </div>
             ))}
+        {data.length === 0 && <p className="new-user-post">You have't posted anything yet!</p>}
       </div>
     </div>
   );

@@ -69,7 +69,7 @@ function App() {
         console.log(e);
       }
     })();
-  }, []);
+  }, [encodedToken]);
 
   useEffect(() => {
     (async () => {
