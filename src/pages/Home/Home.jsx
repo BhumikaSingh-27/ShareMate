@@ -13,12 +13,10 @@ const Home = () => {
 
   const creds = { username: "bhumika27", password: "bhumi27" };
 
-  
   //whenever this page renders the form values shoulf be null/ it should be rest
   useEffect(() => {
     setLoginInput({ username: "", password: "" });
   }, []);
-
 
   //the local storage should also be cleared(because we want user to provide data to login)
   useEffect(() => {
@@ -42,6 +40,7 @@ const Home = () => {
               <span className="text-secondary-dark">M</span>
               <span className="text-primary">ate</span>
             </h1>
+            <div><i>Share anything and everything</i></div>
             <div className="login-form">
               <label>username:</label>
               <input
