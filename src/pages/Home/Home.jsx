@@ -78,7 +78,7 @@ const Home = () => {
               </div>
               {/* <div className="login-buttons"> */}
               <button
-                className="btn-primary"
+                className="cta-btn"
                 onClick={() => loginHandler(loginInput)}
               >
                 Login

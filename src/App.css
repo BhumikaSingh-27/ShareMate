@@ -34,8 +34,9 @@ body {
 
 :root {
   --clr-primary: #0066C6;
-  --clr-primary-dark: #FF7E95;
-  --clr-secondary: #FEB6C3;
+  --clr-primary-hover: #4089D4;
+  --clr-primary-dark: #F65073;
+  --clr-secondary-hover: #FFECF0;
   --clr-off-secondary: #FFC7D1;
 }
 
@@ -55,6 +56,18 @@ body {
 
 .btn-primary:hover {
   background-color: var(--clr-secondary)
+}
+
+.cta-btn {
+  padding: 1rem;
+  background-color: var(--clr-primary);
+  color: white;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  background-color: var(--clr-primary-hover);
+  cursor: pointer;
 }
 
 .main {

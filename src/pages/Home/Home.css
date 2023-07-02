@@ -103,8 +103,19 @@ min-height: 20%;
 }
 
 #btn-default {
-    border: 1px solid var(--clr-primary-dark);
+    border: 2px solid var(--clr-primary-hover);
     background-color: white;
+
+}
+
+#btn-default:hover {
+    background-color: #DFEBF8;
+    border-color: var(--clr-primary);
+    /* color:white; */
+    /* font-weight: 600; */
+
+
+
 }
 
 .signup-nav {

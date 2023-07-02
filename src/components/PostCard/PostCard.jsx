@@ -36,7 +36,6 @@ const PostCard = ({ data }) => {
     (user) => user.username === data.username
   );
 
-
   useEffect(() => {
     const user = state?.users?.find((usr) => usr.username === data.username);
     (async () => {
@@ -57,25 +56,30 @@ const PostCard = ({ data }) => {
     <div>
       <div className="post-container">
         <div>
-          <div className="post-heading"><NavLink className="not-a-link" to={`/profilepage/${data?.username}`}>
-          {" "}
-          <div className="post-title">
-            <img
-              src={picOfUser?.avatarUrl}
-              alt=""
-              className="nav-profile-pic"
-            />
+          <div className="post-heading">
+            <NavLink
+              className="not-a-link"
+              to={`/profilepage/${data?.username}`}
+            >
+              {" "}
+              <div className="post-title">
+                <img
+                  src={picOfUser?.avatarUrl}
+                  alt=""
+                  className="nav-profile-pic"
+                />
 
-            <div className="post-date">
-              <p>
-                <b>
-                  {userData?.firstname} {userData?.lastname}
-                </b>{" "}
-                {d.toDateString()}
-              </p>
-              <p>@{data?.username}</p>
-            </div>
-            </div></NavLink>
+                <div className="post-date">
+                  <p>
+                    <span className="post-user-details">
+                      {userData?.firstname} {userData?.lastname}
+                    </span>{" "}
+                    {d.toDateString()}
+                  </p>
+                  <p>@{data?.username}</p>
+                </div>
+              </div>
+            </NavLink>
             <div className="three-dots-container">
               <div id="three-dots" onClick={() => setModifyPost(!modifyPost)}>
                 {data.username === userLoggedIn && <MoreVertIcon />}{" "}
@@ -86,7 +90,7 @@ const PostCard = ({ data }) => {
                     onOutsideClick={() => setModifyPost(false)}
                   >
                     <div
-                      className="hover"
+                      className="post-dropdown"
                       onClick={() => {
                         setEditPost(true);
                         getPostData(data._id);
@@ -94,7 +98,10 @@ const PostCard = ({ data }) => {
                     >
                       Edit
                     </div>
-                    <div className="hover" onClick={() => deletePost(data._id)}>
+                    <div
+                      className="post-dropdown"
+                      onClick={() => deletePost(data._id)}
+                    >
                       Delete
                     </div>
                   </OutsideClickHandler>
@@ -102,7 +109,6 @@ const PostCard = ({ data }) => {
               )}
             </div>
           </div>
-        
         </div>
         <NavLink className="not-a-link" to={`/postpage/${data._id}`}>
           <div className="post-content">

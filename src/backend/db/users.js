@@ -34,24 +34,7 @@ export const users = [
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804941/NegProjects/SocialMedia/311639512_576717774259599_8692789323497610209_n_kj0bmr.jpg",
 
     bookmarks: [],
-    followers: [
-      {
-        // _id: uuid(),
-        firstname: "Mario",
-        lastname: "Chavez",
-        username: "Chavez24",
-        password: "Chavez12",
-        bio: "Let's get to work",
-        website: "https://google/pic/name.com",
-        avatarUrl:
-          "https://res.cloudinary.com/dgoldjr3g/image/upload/v1686804933/NegProjects/SocialMedia/11_zmzmjz.jpg",
-        bookmarks: [],
-        followers: [],
-        following: [],
-        createdAt: formatDate(),
-        updatedAt: formatDate(),
-      },
-    ],
+    followers: [],
     following: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),

@@ -43,8 +43,8 @@ function App() {
     setEditPost,
     editProfile,
     setEditProfile,
-    isFollowerModal,
-    seIsFollowerModal,
+    userModal,
+    setUserModal,
     followingModal,
     setFollowingModal,
   } = useContext(AsideDataContext);
@@ -78,7 +78,7 @@ function App() {
       }
     })();
   }, [encodedToken]);
-  
+
   window.onbeforeunload = () => {
     localStorage.removeItem("token");
   };
@@ -98,8 +98,8 @@ function App() {
       {editPost && <Modal open={setEditPost} />}
       {openModal && <Modal open={setOpenModal} />}
       {editProfile && <ProfileModal open={setEditProfile} />}
-      {isFollowerModal && <UserModal open={seIsFollowerModal} />}
-      {followingModal && <UserModal open={setFollowingModal} />}
+      {userModal.show && <UserModal open={setUserModal} />}
+      {/* {followingModal && <UserModal open={setFollowingModal} />} */}
       <div className="main">
         {encodedToken && <Navbar />}
         <div className="section">

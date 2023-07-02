@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
+
 }
 
 .signup-container {
@@ -76,5 +76,5 @@
 
 .signup-btn:hover {
     cursor: pointer;
-    background-color: var(--clr-secondary)
+    background-color: var(--clr-secondary-hover)
 }

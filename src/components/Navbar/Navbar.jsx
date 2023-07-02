@@ -22,28 +22,7 @@ const Navbar = () => {
   // }, []);
   console.log("nav", userLoginData);
   return (
-    <div className="nav-main">
-      <div className="nav-container">
-        <div className="navbar">
-          <div className="nav-icons">
-            <HomeIcon />
-          </div>
-
-          <div className="nav-icons">
-            <ExploreIcon />
-          </div>
-          <div className="nav-icons">
-            <ControlPointIcon />
-          </div>
-          <div className="nav-icons">
-            <FavoriteIcon />
-          </div>
-          <div className="nav-icons">
-            <BookmarkIcon />
-          </div>
-        </div>
-      </div>
-
+    <div>
       {/* navbar for desktop view */}
       <div className="nav-desktop">
         <div>
@@ -97,22 +76,27 @@ const Navbar = () => {
             Profile
           </div>
         </NavLink>
-        <NavLink to=""> <div
-          className="nav-content"
-          onClick={() => {
-            localStorage.clear();
-            dispatch({ type: "RESET_ALL" });
-            navigate("/");
-          }}
-        >
-         <div className="nav-icons">
-            <LogoutIcon />
-          </div>{" "}
-          Logout
-        </div>
+        <NavLink className="not-a-link">
+          {" "}
+          <div
+            className="nav-content"
+            onClick={() => {
+              localStorage.clear();
+              dispatch({ type: "RESET_ALL" });
+              navigate("/");
+            }}
+          >
+            <div className="nav-icons">
+              <LogoutIcon />
+            </div>{" "}
+            Logout
+          </div>
         </NavLink>
 
-        <button onClick={() => setOpenModal(true)}> New Post</button>
+        <button className="cta-btn" onClick={() => setOpenModal(true)}>
+          {" "}
+          New Post
+        </button>
         <NavLink
           to={`/profilepage/${userLoggedIn}`}
           className="nav-profile-container not-a-link"

@@ -18,7 +18,7 @@ const CreatePost = () => {
   } = useContext(DataContext);
 
   const { editPost, setEditPost } = useContext(AsideDataContext);
-  
+
   return (
     <div>
       <div className="new-post-container">
@@ -61,7 +61,7 @@ const CreatePost = () => {
           </label>
 
           <button
-            className="follow-btn post-btn"
+            className="post-btn cta-btn"
             onClick={() => {
               createPostHandler(createPost);
               setEditPost(false);

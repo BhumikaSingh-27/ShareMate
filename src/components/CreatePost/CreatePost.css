@@ -49,10 +49,6 @@
 
 }
 
-.post-btn {
-    padding: 1rem;
-}
-
 .new-post-media button:hover {
     cursor: pointer;
 }
@@ -70,4 +66,15 @@
     color: white;
     padding: 0rem 0.5rem;
     border-radius: 0.5rem;
+}
+
+.post-btn {
+    border-radius: 3rem;
+    padding: 1rem 1.5rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    /* border: 3px solid var(--clr-secondary-hover); */
+    border: none;
+    font-weight: 600;
+
 }
