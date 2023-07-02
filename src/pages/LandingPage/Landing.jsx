@@ -40,9 +40,6 @@ const Landing = () => {
   //   })();
   // }, []);
 
-  // useEffect(() => {
-  //   getUserLoggedInData();
-  // }, []);
 
   useEffect(() => {
     dispatch({ type: "USER_TO_FOLLOW" });

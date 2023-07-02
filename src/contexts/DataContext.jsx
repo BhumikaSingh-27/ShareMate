@@ -10,7 +10,7 @@ export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFun, initialValue);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [encodedToken, setEncodedToken] = useState(""); //gloabally access the local storage token
   const [userLoggedIn, setUserLoggedIn] = useState(""); //gloabally access the local storage token
   const [userPost, setUserPost] = useState([]);
@@ -19,7 +19,8 @@ export const DataContextProvider = ({ children }) => {
   const [createPost, setCreatePost] = useState({ text: "", media: "" }); //to create ans post the data
   const editPostId = useRef("");
 
-  console.log("context",userLoginData)
+  console.log("context refresh", encodedToken);
+  
   const likePost = async (postId, value) => {
     if (!value) {
       try {
@@ -160,24 +161,6 @@ export const DataContextProvider = ({ children }) => {
   //   })();
   // }, []);
 
-  const getUserLoggedInData = async () => {
-    try {
-      const user = state?.users?.find((usr) => usr.username === userLoggedIn);
-      // const userList = await axios.get("/api/users");
-      // const user = userList.data.users?.find(
-      //   (usr) => usr.username === userLoggedIn
-      // );
-      // console.log("gt user", user);
-      // const response = await axios.get(`/api/users/${user._id}`);
-      // console.log("check",response)
-      setUserLoginData(user);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  
-  
-
   return (
     <DataContext.Provider
       value={{
@@ -189,7 +172,6 @@ export const DataContextProvider = ({ children }) => {
         setUserPost,
         userLoginData,
         setUserLoginData,
-        getUserLoggedInData,
         createPostHandler,
         setFilter,
         openModal,
@@ -201,7 +183,8 @@ export const DataContextProvider = ({ children }) => {
         editPostId,
         userLoggedIn,
         setUserLoggedIn,
-        loading, setLoading
+        loading,
+        setLoading,
       }}
     >
       {children}

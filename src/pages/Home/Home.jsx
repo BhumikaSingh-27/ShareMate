@@ -35,12 +35,17 @@ const Home = () => {
 
         <div className="login">
           <div className="login-container">
-            <h1>
-              <span className="text-primary">Share</span>
-              <span className="text-secondary-dark">M</span>
-              <span className="text-primary">ate</span>
-            </h1>
-            <div><i>Share anything and everything</i></div>
+            <div>
+              <h1>
+                <span className="text-primary">Share</span>
+                <span className="text-secondary-dark">M</span>
+                <span className="text-primary">ate</span>
+              </h1>
+            </div>
+            <div style={{ textAlign: "center", padding: "1rem" }}>
+              <i>Share anything and everything</i>
+            </div>
+
             <div className="login-form">
               <label>username:</label>
               <input
