@@ -8,12 +8,14 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
 import { DataContext } from "../../contexts/DataContext";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signupInput, setSignupInput, signupHandler } =
     useContext(AuthContext);
   const { setEncodedToken } = useContext(DataContext);
+  const { scrollToTop } = useContext(AsideDataContext);
 
   useEffect(() => {
     setSignupInput({
@@ -28,7 +30,9 @@ const SignUp = () => {
   useEffect(() => {
     localStorage.clear();
     setEncodedToken("");
+    scrollToTop();
   }, []);
+
   return (
     <div className="signup-main">
       <div className="signup-container">
@@ -93,9 +97,8 @@ const SignUp = () => {
                 {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </div>
             </div>
-            
 
-            <button className="signup-btn" onClick={signupHandler}>
+            <button className="signup-btn cta-btn" onClick={signupHandler}>
               Sign Up
             </button>
             <div className="signup-nav">

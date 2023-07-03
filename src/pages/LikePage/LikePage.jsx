@@ -4,9 +4,11 @@ import { DataContext } from "../../contexts/DataContext";
 import PostCard from "../../components/PostCard/PostCard";
 import { useEffect } from "react";
 import axios from "axios";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const LikePage = () => {
   const { state, dispatch } = useContext(DataContext);
+  const { scrollToTop } = useContext(AsideDataContext);
 
   useEffect(() => {
     (async () => {
@@ -22,6 +24,11 @@ const LikePage = () => {
 
   useEffect(() => {
     dispatch({ type: "USER_TO_FOLLOW" });
+  }, []);
+
+   //set the scroll bar to top whenever the page loads
+   useEffect(() => {
+    scrollToTop();
   }, []);
 
   return (

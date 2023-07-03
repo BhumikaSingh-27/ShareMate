@@ -183,7 +183,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "bhumika27",
+    username: "Chavez24",
     createdAt: "29 June, 2022",
     updatedAt: formatDate(),
   },
@@ -227,6 +227,19 @@ export const posts = [
     },
     username: "Chavez24",
     createdAt: "11 June, 2023",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content: "Confidence is something you create when you believe in yourself.",
+    image: "",
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "bhumika27",
+    createdAt: "01 July, 2023",
     updatedAt: formatDate(),
   },
 ];

@@ -5,11 +5,13 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { DataContext } from "../../contexts/DataContext";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Home = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loginInput, setLoginInput, loginHandler } = useContext(AuthContext);
   const { setEncodedToken } = useContext(DataContext);
+  const { scrollToTop } = useContext(AsideDataContext);
 
   const creds = { username: "bhumika27", password: "bhumi27" };
 
@@ -22,6 +24,8 @@ const Home = () => {
   useEffect(() => {
     localStorage.clear();
     setEncodedToken("");
+    scrollToTop();
+  
   }, []);
 
   return (
@@ -78,7 +82,7 @@ const Home = () => {
               </div>
               {/* <div className="login-buttons"> */}
               <button
-                className="cta-btn"
+                className="login-btn cta-btn"
                 onClick={() => loginHandler(loginInput)}
               >
                 Login

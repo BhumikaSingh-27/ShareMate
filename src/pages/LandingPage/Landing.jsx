@@ -7,10 +7,12 @@ import PostCard from "../../components/PostCard/PostCard";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
+import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
-
+  const {scrollToTop} = useContext(AsideDataContext)
+  
   const landingPost = state?.posts?.filter(
     ({ username }) =>
       username === userLoggedIn ||
@@ -40,9 +42,12 @@ const Landing = () => {
   //   })();
   // }, []);
 
-
   useEffect(() => {
     dispatch({ type: "USER_TO_FOLLOW" });
+  }, []);
+
+  useEffect(() => {
+    scrollToTop();
   }, []);
 
   return (
@@ -89,7 +94,9 @@ const Landing = () => {
                 <PostCard data={data} />
               </div>
             ))}
-        {data.length === 0 && <p className="new-user-post">You have't posted anything yet!</p>}
+        {data.length === 0 && (
+          <p className="new-user-post">You have't posted anything yet!</p>
+        )}
       </div>
     </div>
   );

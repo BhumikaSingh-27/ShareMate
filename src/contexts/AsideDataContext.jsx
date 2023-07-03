@@ -92,6 +92,10 @@ export const AsideDataContextProvider = ({ children }) => {
     }
   };
 
+  function scrollToTop() {
+    window.scroll(0, 0);
+  }
+
   return (
     <AsideDataContext.Provider
       value={{
@@ -105,8 +109,9 @@ export const AsideDataContextProvider = ({ children }) => {
         unfollowUser,
         editProfile,
         setEditProfile,
-        userModal, setUserModal
-        // followingModal, setFollowingModal
+        userModal, setUserModal,
+        scrollToTop
+       
       }}
     >
       {children}
