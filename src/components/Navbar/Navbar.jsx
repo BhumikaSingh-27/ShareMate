@@ -12,8 +12,13 @@ import { DataContext } from "../../contexts/DataContext";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const { userLoginData, dispatch, setOpenModal, userLoggedIn } =
-    useContext(DataContext);
+  const {
+    userLoginData,
+    dispatch,
+    setOpenModal,
+    userLoggedIn,
+    setEncodedToken,
+  } = useContext(DataContext);
   const navigate = useNavigate();
 
   // console.log("insideNav", localStorage.getItem("userData"));
@@ -82,6 +87,7 @@ const Navbar = () => {
             className="nav-content"
             onClick={() => {
               localStorage.clear();
+              setEncodedToken("");
               dispatch({ type: "RESET_ALL" });
               navigate("/");
             }}

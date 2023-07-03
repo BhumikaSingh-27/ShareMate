@@ -11,8 +11,8 @@ import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
-  const {scrollToTop} = useContext(AsideDataContext)
-  
+  const { scrollToTop } = useContext(AsideDataContext);
+
   const landingPost = state?.posts?.filter(
     ({ username }) =>
       username === userLoggedIn ||
@@ -27,14 +27,13 @@ const Landing = () => {
       )
     : [...landingPost];
 
-  console.log(state);
   // console.log(data);
 
   // useEffect(() => {
   //   (async () => {
   //     try {
   //       const response = await axios.get(`/api/posts/user/${userLoggedIn}`);
-  //       setUserPostData(response.data.posts);
+  // setUserPostData(response.data.posts);
   //       // dispatch({ type: "GET_USERS", payload: response.data.users });
   //     } catch (e) {
   //       console.log(e);

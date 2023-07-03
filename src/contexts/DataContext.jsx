@@ -35,7 +35,7 @@ export const DataContextProvider = ({ children }) => {
             },
           }
         );
-        dispatch({ type: "GET_POSTS", payload: response.data.posts });
+        dispatch({ type: "GET_POSTS", payload: response.data.posts });//render all post
         dispatch({ type: "LIKED_POST", payload: postId });
       } catch (e) {
         console.log(e);

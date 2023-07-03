@@ -5,11 +5,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import "./Footer.css";
 
+//condition location
+
 const Footer = () => {
   return (
     <div>
       <hr />
-      <div className="footer-container">
+      <div className="footer-container"> 
         <div>
           Made with ❤️ by{" "}
           <a

@@ -21,9 +21,9 @@ const UserList = ({ user }) => {
           >
             {" "}
             <div>
-              <h4>
+              <div className="post-user-details">
                 {user.firstname} {user.lastname}
-              </h4>
+              </div>
               <span>@{user.username}</span>
             </div>
           </NavLink>

@@ -4,14 +4,10 @@ import { Navigate, useLocation } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 
 const AuthWrapper = ({ children }) => {
-  
-  const location = useLocation();
+  const { encodedToken } = useContext(DataContext);
 
-  return localStorage.getItem("token") ? (
-    children
-  ) : (
-    <Navigate to="/"  />
-  );
+  console.log(encodedToken, "wrap");
+  return encodedToken ? children : <Navigate to="/" />;
 };
 // state={{ from: location }}
 export default AuthWrapper;
