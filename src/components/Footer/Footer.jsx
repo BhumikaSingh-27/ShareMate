@@ -9,7 +9,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="footer-main">
       <hr />
       <div className="footer-container"> 
         <div>

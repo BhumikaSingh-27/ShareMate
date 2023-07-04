@@ -25,6 +25,7 @@ import AuthWrapper from "./components/Authenticate/AuthWrapper";
 import { Discuss } from "react-loader-spinner";
 import SinglePost from "./pages/SinglePost.jsx/SinglePost";
 import UserModal from "./components/Modal/UserModal";
+import Header from "./components/Header/Header";
 
 function App() {
   const {
@@ -102,6 +103,7 @@ function App() {
       {/* {followingModal && <UserModal open={setFollowingModal} />} */}
       <div className="main">
         {encodedToken && <Navbar />}
+        {encodedToken && <Header />}
         <div className="section">
           <Routes>
             <Route path="/mockman" element={<Mockman />}></Route>

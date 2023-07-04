@@ -1,0 +1,12 @@
+.header-container {
+    display: none;
+}
+
+@media (max-width:450px) {
+    .header-container {
+        height: 3rem;
+        border: 1px solid black;
+        display: flex;
+        width: 100%;
+    }
+}

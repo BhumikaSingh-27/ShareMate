@@ -8,6 +8,7 @@ import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
 import { AsideDataContext } from "../../contexts/AsideDataContext";
+import Header from "../../components/Header/Header";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
@@ -53,6 +54,7 @@ const Landing = () => {
     <div className="landing-container">
       {/* <Navbar /> */}
       {/* filter section in landing page */}
+
       <div className="feed">
         <div className="filter-container">
           <div className="filter-post">
@@ -80,19 +82,21 @@ const Landing = () => {
           <CreatePost />
         </div>
         {/* Display all the posts of user logged in and whom user is following*/}
-        {state.filter
-          ? data?.map((data) => (
-              <div key={data._id}>
-                {" "}
-                <PostCard data={data} />
-              </div>
-            ))
-          : data.reverse()?.map((data) => (
-              <div key={data._id}>
-                {" "}
-                <PostCard data={data} />
-              </div>
-            ))}
+        <div className="post-display">
+          {state.filter
+            ? data?.map((data) => (
+                <div key={data._id}>
+                  {" "}
+                  <PostCard data={data} />
+                </div>
+              ))
+            : data.reverse()?.map((data) => (
+                <div key={data._id}>
+                  {" "}
+                  <PostCard data={data} />
+                </div>
+              ))}
+        </div>
         {data.length === 0 && (
           <p className="new-user-post">You have't posted anything yet!</p>
         )}
