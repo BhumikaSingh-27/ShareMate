@@ -20,3 +20,9 @@
 .not-link:hover {
     color: rgb(128, 19, 201);
 }
+
+@media (max-width:450px) {
+    .footer-container {
+        width: 100%;
+}
+}

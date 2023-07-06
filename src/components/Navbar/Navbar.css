@@ -85,3 +85,9 @@
 .not-a-link {
     color: black;
 }
+
+@media (max-width: 450px) {
+    .nav-desktop {
+        display: none;
+    }
+}

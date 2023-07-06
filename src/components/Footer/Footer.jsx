@@ -10,7 +10,6 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <hr />
       <div className="footer-container"> 
         <div>
           Made with ❤️ by{" "}

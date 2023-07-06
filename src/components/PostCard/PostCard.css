@@ -104,3 +104,9 @@
     align-items: flex-end;
 
 }
+
+@media (max-width:450px) {
+    .post-container {
+        width: 100%;
+    }
+}

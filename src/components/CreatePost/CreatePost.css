@@ -92,4 +92,21 @@
         width: 100%;
     }
 
+    .new-post-media {
+        align-items: center;
+    }
+
+    /* .new-post-input {
+        margin: 1rem;
+
+    }
+
+    .post-btn {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+
+    .new-post-media label {
+        margin-left: 0.5rem;
+    } */
 }
