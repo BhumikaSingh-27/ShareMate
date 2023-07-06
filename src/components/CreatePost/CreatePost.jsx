@@ -12,7 +12,8 @@ const CreatePost = () => {
     createPostHandler,
     dispatch,
     createPost,
-    setCreatePost,postType
+    setCreatePost,
+    postType,
   } = useContext(DataContext);
 
   const { editPost, setEditPost } = useContext(AsideDataContext);
@@ -36,7 +37,7 @@ const CreatePost = () => {
     const mediaUrl = URL.createObjectURL(event.target.files[0]);
     if (event.target.files[0].type === "video/mp4") {
       setvideo(mediaUrl);
-      postType.current="video"
+      postType.current = "video";
       console.log("first");
     } else {
       setImage(mediaUrl);
@@ -62,10 +63,19 @@ const CreatePost = () => {
             }
           ></textarea>
           <span className="image-span">
-            {image && <img src={image} alt="postImg" id="image-post" />}
+            {image && (
+              <img
+                src={image}
+                alt="postImg"
+                id="image-post"
+              />
+            )}
             {video && (
               <video width="320" height="240" controls>
-                <source src={video} alt="media/mp4"></source>
+                <source
+                  src={video}
+                  alt="media/mp4"
+                ></source>
               </video>
             )}
           </span>
@@ -99,7 +109,7 @@ const CreatePost = () => {
               setCreatePost({ text: "", media: "" });
               dispatch({ type: "CLEAR_FILTER" });
               setImage("");
-              setvideo("")
+              setvideo("");
             }}
           >
             {editPost ? "Update" : "Post"}
