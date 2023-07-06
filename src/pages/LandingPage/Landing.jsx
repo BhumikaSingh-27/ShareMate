@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import "./Landing.css";
-import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import PostCard from "../../components/PostCard/PostCard";

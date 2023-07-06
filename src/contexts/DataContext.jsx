@@ -20,6 +20,7 @@ export const DataContextProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false); //create post modal
   const [createPost, setCreatePost] = useState({ text: "", media: "" }); //to create ans post the data
   const editPostId = useRef("");
+  const postType = useRef("")
 
   console.log("context refresh", encodedToken);
 
@@ -128,7 +129,7 @@ export const DataContextProvider = ({ children }) => {
                 content: postData.text,
                 image: postData.media,
               },
-            }, //{..post} and {post}
+            }, 
             {
               headers: {
                 authorization: encodedToken,
@@ -187,6 +188,7 @@ export const DataContextProvider = ({ children }) => {
         setUserLoggedIn,
         loading,
         setLoading,
+        postType
       }}
     >
       {children}

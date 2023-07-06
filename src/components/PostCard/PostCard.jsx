@@ -15,7 +15,7 @@ import { AsideDataContext } from "../../contexts/AsideDataContext";
 import { NavLink } from "react-router-dom";
 
 const PostCard = ({ data }) => {
-  const { state, likePost, bookMarkPost, userLoggedIn } =
+  const { state, likePost, bookMarkPost, userLoggedIn, postType } =
     useContext(DataContext);
   const { deletePost, setEditPost, getPostData } = useContext(AsideDataContext);
   const [userData, setUserData] = useState([]); //to show the user details in individual post in landing page
@@ -115,6 +115,11 @@ const PostCard = ({ data }) => {
             {data?.content}
             {data?.image && (
               <img className="post-img" src={data?.image} alt="" />
+            )}
+            {postType.current && data?.image && (
+              <video width="320" height="240" controls autoplay muted>
+                <source src={data?.image} alt=""></source>
+              </video>
             )}
           </div>
         </NavLink>

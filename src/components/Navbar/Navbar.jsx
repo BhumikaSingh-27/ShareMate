@@ -25,7 +25,7 @@ const Navbar = () => {
   // useEffect(() => {
   //   setUserLoginData(JSON.parse(localStorage.getItem("userData")));
   // }, []);
-  console.log("nav", userLoginData);
+
   return (
     <div>
       {/* navbar for desktop view */}
