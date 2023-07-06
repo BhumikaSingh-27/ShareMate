@@ -9,13 +9,8 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-<<<<<<< Updated upstream
     <div>
       <hr />
-=======
-    <div className="footer-main">
-      {/* <hr /> */}
->>>>>>> Stashed changes
       <div className="footer-container"> 
         <div>
           Made with ❤️ by{" "}

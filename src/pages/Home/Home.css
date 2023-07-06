@@ -113,15 +113,6 @@
 
 
 @media (max-width:450px) {
-<<<<<<< Updated upstream
-=======
-    body {
-        /* overflow: hidden;
-        overflow-y: scroll; */
-        /* overflow-y: overlay; */
-    }
-
->>>>>>> Stashed changes
     #login-img {
         display: none;
     }

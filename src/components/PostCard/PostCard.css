@@ -1,10 +1,5 @@
 .post-container {
     width: 30rem;
-<<<<<<< Updated upstream
-    max-height: 50rem;
-=======
-    /* max-height: 50rem; */
->>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -108,14 +103,4 @@
     flex-direction: column;
     align-items: flex-end;
 
-<<<<<<< Updated upstream
-=======
-}
-
-@media(max-width:450px) {
-    .post-container {
-        width: 100% ;
-    }
-
->>>>>>> Stashed changes
 }
