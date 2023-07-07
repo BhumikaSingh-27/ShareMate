@@ -85,6 +85,17 @@ export const reducerFun = (state, action) => {
 
       return { ...state, users: findUser };
     }
+
+    case "SET_COMMENT": {
+      console.log(action.payload);
+      const updatePostData = state.posts.map((post) =>
+        post._id === action.payload?.postData._id
+          ? { ...post, comment: [...post.comment, action.payload.data] }
+          : post
+      );
+      
+      return {...state, posts:updatePostData};
+    }
     default: {
       return state;
     }
