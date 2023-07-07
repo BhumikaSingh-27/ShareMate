@@ -135,6 +135,14 @@ body {
   align-items: center;
 }
 
+.search-main-show {
+  display: none;
+}
+
+.search-main {
+  display: block;
+}
+
 @media (max-width:450px) {
 
   /* .App {
@@ -156,5 +164,20 @@ body {
 
   .section {
     width: 100%;
+  }
+
+  .search-main {
+    display: none;
+    width: 100%
+  }
+
+  .search-main-show {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
   }
 }

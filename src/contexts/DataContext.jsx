@@ -19,7 +19,7 @@ export const DataContextProvider = ({ children }) => {
   const [createPost, setCreatePost] = useState({ text: "", media: "" }); //to create ans post the data
   const editPostId = useRef("");
   const postType = useRef("")
-
+  const [searchDisplay, setSearchDisplay] = useState(false)
 
   const likePost = async (postId, value) => {
     if (!value) {
@@ -185,7 +185,8 @@ export const DataContextProvider = ({ children }) => {
         setUserLoggedIn,
         loading,
         setLoading,
-        postType
+        postType,
+        searchDisplay, setSearchDisplay
       }}
     >
       {children}

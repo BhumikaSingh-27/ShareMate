@@ -1,7 +1,7 @@
 .search-main {
     margin-left: 2rem;
-    margin-top: 3rem;
-    margin: 3rem 2rem;
+    margin-top: 1rem;
+    /* margin: 3rem 2rem; */
     position: relative;
 }
 
@@ -82,4 +82,10 @@ a {
 
 .nav-profile:hover {
     background-color: var(--clr-secondary-hover);
+}
+
+@media (max-width:450px) {
+    .search-main {
+        display: none;
+    }
 }
