@@ -161,7 +161,11 @@ function App() {
           </Routes>
         </div>
         {encodedToken && (
-          <div className={searchDisplay ? "search-main-show" : "search-main"}>
+          <div
+            className={
+              searchDisplay ? "search-main-show" : "search-main-hide"
+            }
+          >
             <div className="side-search-bar">
               <SearchBar />
               <div className="user-container">

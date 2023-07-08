@@ -136,12 +136,16 @@ body {
 }
 
 .search-main-show {
-  display: none;
+  display: block;
 }
 
 .search-main {
   display: block;
 }
+.search-main-hide{
+  display: none;
+}
+
 
 @media (max-width:450px) {
 

@@ -7,6 +7,7 @@ import FiberNewIcon from "@mui/icons-material/FiberNew";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { DataContext } from "../../contexts/DataContext";
 import { AsideDataContext } from "../../contexts/AsideDataContext";
+import Header from "../../components/Header/Header";
 
 const Landing = () => {
   const { state, dispatch, setFilter, userLoggedIn } = useContext(DataContext);
@@ -51,8 +52,10 @@ const Landing = () => {
   return (
     <div className="landing-container">
       {/* <Navbar /> */}
+
       {/* filter section in landing page */}
       <div className="feed">
+        <Header />
         <div className="filter-container">
           <div className="filter-post">
             <div className="filter">

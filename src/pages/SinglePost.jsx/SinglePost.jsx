@@ -28,7 +28,7 @@ const SinglePost = () => {
   return (
     <div>
       <div>
-        <div>
+        <div style={{ marginTop: "2rem" }}>
           <PostCard data={singlePost} />
           {singlePost?.comment?.map((ele) => (
             <CommentCard data={ele} />

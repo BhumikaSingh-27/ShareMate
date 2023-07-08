@@ -23,25 +23,25 @@ const PostCard = ({ data }) => {
   const [modifyPost, setModifyPost] = useState(false); //to open the dropdow for edit option
 
   //get like count of a post
-  const likedCount = state.posts.find(({ _id }) => _id === data._id)?.likes
+  const likedCount = state.posts.find(({ _id }) => _id === data?._id)?.likes
     ?.likeCount;
 
   //check if post is already liked and preent in likedPosts Array
-  const postLiked = state?.likedPosts?.find((id) => id === data._id);
+  const postLiked = state?.likedPosts?.find((id) => id === data?._id);
 
   //check if post is already bookmarked
-  const postBookmarked = state?.bookmarkedPosts?.find((id) => id === data._id);
+  const postBookmarked = state?.bookmarkedPosts?.find((id) => id === data?._id);
 
   //get user profile pic
   const picOfUser = state?.users?.find(
-    (user) => user.username === data.username
+    (user) => user?.username === data?.username
   );
 
   useEffect(() => {
-    const user = state?.users?.find((usr) => usr.username === data.username);
+    const user = state?.users?.find((usr) => usr?.username === data?.username);
     (async () => {
       try {
-        const response = await axios.get(`/api/users/${user._id}`);
+        const response = await axios.get(`/api/users/${user?._id}`);
         setUserData(response.data.user);
       } catch (e) {
         console.log(e);
@@ -50,7 +50,7 @@ const PostCard = ({ data }) => {
   }, [state.users]);
 
   //get the date in format
-  const d = new Date(data.createdAt);
+  const d = new Date(data?.createdAt);
 
   return (
     <div>
@@ -82,7 +82,7 @@ const PostCard = ({ data }) => {
             </NavLink>
             <div className="three-dots-container">
               <div id="three-dots" onClick={() => setModifyPost(!modifyPost)}>
-                {data.username === userLoggedIn && <MoreVertIcon />}{" "}
+                {data?.username === userLoggedIn && <MoreVertIcon />}{" "}
               </div>
               {modifyPost && (
                 <div className="post-popup">
@@ -93,14 +93,14 @@ const PostCard = ({ data }) => {
                       className="post-dropdown"
                       onClick={() => {
                         setEditPost(true);
-                        getPostData(data._id);
+                        getPostData(data?._id);
                       }}
                     >
                       Edit
                     </div>
                     <div
                       className="post-dropdown"
-                      onClick={() => deletePost(data._id)}
+                      onClick={() => deletePost(data?._id)}
                     >
                       Delete
                     </div>
@@ -110,7 +110,7 @@ const PostCard = ({ data }) => {
             </div>
           </div>
         </div>
-        <NavLink className="not-a-link" to={`/postpage/${data._id}`}>
+        <NavLink className="not-a-link" to={`/postpage/${data?._id}`}>
           <div className="post-content">
             {data?.content}
             {data?.image && (
@@ -150,10 +150,13 @@ const PostCard = ({ data }) => {
           >
             <div className="liked-counter-div">
               <ChatBubbleOutlineIcon />{" "}
-              {
-                state?.posts.find(({ _id }) => _id === data._id)?.comment
+              {state?.posts.find(({ _id }) => _id === data?._id)?.comment
+                ?.length === 0 ? (
+                <></>
+              ) : (
+                state?.posts.find(({ _id }) => _id === data?._id)?.comment
                   ?.length
-              }
+              )}
             </div>
           </div>
           <div
