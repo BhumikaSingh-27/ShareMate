@@ -84,6 +84,7 @@ function App() {
   // window.onbeforeunload = () => {
   //   localStorage.removeItem("token");
   // };
+
   return (
     <div className="App">
       {loading && (

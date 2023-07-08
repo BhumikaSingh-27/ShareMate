@@ -13,6 +13,7 @@ import axios from "axios";
 import OutsideClickHandler from "react-outside-click-handler";
 import { AsideDataContext } from "../../contexts/AsideDataContext";
 import { NavLink } from "react-router-dom";
+import toastNotify from "../../utils/toastNotify";
 
 const PostCard = ({ data }) => {
   const { state, likePost, bookMarkPost, userLoggedIn, postType } =
@@ -57,6 +58,7 @@ const PostCard = ({ data }) => {
     await navigator.clipboard.writeText(
       `https://bhumikasingh-sharemate.netlify.app/postpage/${data._id}`
     );
+    toastNotify("success", "Link copied!");
   }
 
   return (
