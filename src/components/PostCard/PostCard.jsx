@@ -55,7 +55,7 @@ const PostCard = ({ data }) => {
   //copy to clipboard
   async function copyToClip() {
     await navigator.clipboard.writeText(
-      `${window.location.href}/postpage/${data._id}`
+      `https://bhumikasingh-sharemate.netlify.app/postpage/${data._id}`
     );
   }
 

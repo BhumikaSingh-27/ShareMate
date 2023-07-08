@@ -81,9 +81,9 @@ function App() {
     })();
   }, [encodedToken]);
 
-  window.onbeforeunload = () => {
-    localStorage.removeItem("token");
-  };
+  // window.onbeforeunload = () => {
+  //   localStorage.removeItem("token");
+  // };
   return (
     <div className="App">
       {loading && (
