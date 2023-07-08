@@ -52,6 +52,13 @@ const PostCard = ({ data }) => {
   //get the date in format
   const d = new Date(data?.createdAt);
 
+  //copy to clipboard
+  async function copyToClip() {
+    await navigator.clipboard.writeText(
+      `${window.location.href}/postpage/${data._id}`
+    );
+  }
+
   return (
     <div>
       <div className="post-container">
@@ -167,7 +174,7 @@ const PostCard = ({ data }) => {
           >
             {postBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </div>
-          <div className="post-icons">
+          <div className="post-icons" onClick={() => copyToClip()}>
             <ShareIcon />
           </div>
         </div>
