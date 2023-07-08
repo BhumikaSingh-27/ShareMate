@@ -55,7 +55,7 @@ const Landing = () => {
 
       {/* filter section in landing page */}
       <div className="feed">
-        <Header />
+        {/* <Header /> */}
         <div className="filter-container">
           <div className="filter-post">
             <div className="filter">
