@@ -13,7 +13,7 @@ import { AsideDataContext } from "../../contexts/AsideDataContext";
 
 const Explore = () => {
   const { state, dispatch } = useContext(DataContext);
-  const {scrollToTop} = useContext(AsideDataContext)
+  const { scrollToTop } = useContext(AsideDataContext);
   const [feedData, setFeedData] = useState([]);
   const [page, setPage] = useState(1);
   const [feedLoading, setFeedLoading] = useState(false);
@@ -25,7 +25,6 @@ const Explore = () => {
   useEffect(() => {
     scrollToTop();
   }, []);
-
 
   // const posts = [...(state?.posts)].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
   // console.log("sorted",posts)
@@ -74,16 +73,12 @@ const Explore = () => {
 
   return (
     <div className="landing-container explore">
-      {/* <div>
-        <Navbar />
-      </div> */}
       <div>
-        {/* <PostCard /> */}
-        {[...feedData]
-          // .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          ?.map((data) => (
+        {[...feedData]?.map((data) => (
+          <div key={data._id}>
             <PostCard data={data} />
-          ))}
+          </div>
+        ))}
         {/* {feedLoading && (
           <div className="feedLoader">
             <ColorRing

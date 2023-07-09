@@ -26,6 +26,7 @@ import { Discuss } from "react-loader-spinner";
 import SinglePost from "./pages/SinglePost.jsx/SinglePost";
 import UserModal from "./components/Modal/UserModal";
 import CommentModal from "./components/Modal/CommentModal";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   const {
@@ -81,9 +82,9 @@ function App() {
     })();
   }, [encodedToken]);
 
-  // window.onbeforeunload = () => {
-  //   localStorage.removeItem("token");
-  // };
+  window.onbeforeunload = () => {
+    localStorage.removeItem("token");
+  };
 
   return (
     <div className="App">
@@ -159,6 +160,14 @@ function App() {
                 </AuthWrapper>
               }
             ></Route>
+            <Route
+              path="/search"
+              element={
+                <AuthWrapper>
+                  <SearchPage />
+                </AuthWrapper>
+              }
+            ></Route>
           </Routes>
         </div>
         {encodedToken && (
@@ -169,7 +178,10 @@ function App() {
                 <h2>You might Like</h2>
                 {/* Displaying suggestions to whom user can follow*/}
                 {state?.userToFollow?.map((user) => (
-                  <UserList user={user} />
+                  <div key={user._id}>
+                    {" "}
+                    <UserList user={user} />{" "}
+                  </div>
                 ))}
               </div>
             </div>

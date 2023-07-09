@@ -77,7 +77,7 @@ a {
 }
 
 @media (max-width:450px) {
-    .search-main {
+    /* .search-main {
         display: none;
-    }
+    } */
 }

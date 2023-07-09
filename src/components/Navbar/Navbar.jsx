@@ -38,9 +38,9 @@ const Navbar = () => {
           </div>
         </NavLink>
         <div>
-        <div className="nav-icons" onClick={()=>setSearchDisplay(!searchDisplay)}>
+        <NavLink className="not-a-link"  to="/search"><div className="nav-icons">
         <PersonSearchSharpIcon />
-        </div>
+        </div></NavLink>
         </div>
         <NavLink className="not-a-link" to="/explore">
           <div className="nav-icons">
