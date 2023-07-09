@@ -69,9 +69,6 @@ const SearchBar = () => {
               );
             })
           )}
-          {/* <div className="dataResults">
-          {searchResult.length === 0 && <h5>No results found</h5>}
-          </div> */}
         </div>
       )}
     </div>
