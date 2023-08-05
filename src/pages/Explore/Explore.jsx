@@ -63,7 +63,7 @@ const Explore = () => {
     const data = state?.posts.slice(0, page * 3);
     setFeedData(data);
     setFeedLoading(false);
-  }, [page]);
+  }, [page, state.posts]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleInfiniteScroll);
