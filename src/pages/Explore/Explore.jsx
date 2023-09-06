@@ -60,7 +60,7 @@ const Explore = () => {
 
   useEffect(() => {
     setFeedLoading(true);
-    const data = state?.posts.slice(0, page * 3);
+    const data = state?.posts.slice(0);
     setFeedData(data);
     setFeedLoading(false);
   }, [page, state.posts]);
