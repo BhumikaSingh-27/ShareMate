@@ -11,11 +11,10 @@ import Landing from "./pages/LandingPage/Landing";
 import Explore from "./pages/Explore/Explore";
 import Bookmark from "./pages/Bookmark/Bookmark";
 import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useContext, lazy, Suspense } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import LikePage from "./pages/LikePage/LikePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import { useContext } from "react";
 import { DataContext } from "./contexts/DataContext";
 import Modal from "./components/Modal/Modal";
 import axios from "axios";
@@ -28,6 +27,21 @@ import UserModal from "./components/Modal/UserModal";
 import CommentModal from "./components/Modal/CommentModal";
 import SearchPage from "./pages/SearchPage/SearchPage";
 
+// const UserModal = lazy(() => import("./components/Modal/UserModal"));
+// const LikePage = lazy(() => import("./pages/LikePage/LikePage"));
+// const Bookmark = lazy(() => import("./pages/Bookmark/Bookmark"));
+// const Explore = lazy(() => import("./pages/Explore/Explore"));
+// const CommentModal = lazy(() => import("./components/Modal/CommentModal"));
+// const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
+// const SinglePost = lazy(() => import("./pages/SinglePost.jsx/SinglePost"));
+// // const ProfileModal = lazy(() => import("./components/Modal/ProfileModal"));
+// const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
+// const Modal = lazy(() => import("./components/Modal/Modal"));
+// const UserList = lazy(() => import("./components/UserList/UserList"));
+// const SearchBar = lazy(() => import("./components/SearchBar/SearchBar"));
+// const SignUp = lazy(() => import("./pages/Signup/SignUp"));
+// // const Landing = lazy(() => import("./pages/LandingPage/Landing"));
+
 function App() {
   const {
     setEncodedToken,
@@ -38,7 +52,6 @@ function App() {
     setOpenModal,
     loading,
     encodedToken,
-    searchDisplay,
   } = useContext(DataContext);
 
   const {
@@ -88,6 +101,17 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Suspense
+        fallback={
+          <Discuss
+            height="200"
+            width="200"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            color="#FF7E95"
+          />
+        }
+      > */}
       {loading && (
         <div className="loader">
           <Discuss
@@ -108,6 +132,7 @@ function App() {
       <div className="main">
         {encodedToken && <Navbar />}
         <div className="section">
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
           <Routes>
             <Route path="/mockman" element={<Mockman />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
@@ -169,6 +194,7 @@ function App() {
               }
             ></Route>
           </Routes>
+          {/* </Suspense> */}
         </div>
         {encodedToken && (
           <div>
@@ -191,6 +217,7 @@ function App() {
 
       <Footer />
       <ToastContainer />
+      {/* </Suspense> */}
     </div>
   );
 }
